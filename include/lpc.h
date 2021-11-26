@@ -26,7 +26,9 @@ typedef struct {
 } frame_t;
 
 typedef struct {
-        int pitch;
+        int sound_count;
+	wchar_t *sounds;
+	int pitch;
         frame_t frames[30];
 } voice_bank_t;
 

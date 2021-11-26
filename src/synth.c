@@ -53,10 +53,9 @@ int synth(wchar_t *text, int pitch_val, float tempo_val, float gain_val,
 	else
 		pitch = pitch_val;
 
-	wchar_t sounds[30] = L"abcçdefgğhiıjklmnoöprsştuüvyz_";
 	for (int i = 0; text[i] != L'\0'; i++) {
-		for (int j = 0; j < 30; j++) {
-			if (text[i] == sounds[j]) {
+		for (int j = 0; j < vbank->sound_count; j++) {
+			if (text[i] == vbank->sounds[j]) {
 				lpc_decode(vbank->frames[j], pitch, tempo_val,
 					gain_val, asp_val, vibrato_val,
 					apply_vibrato, write_sample);
